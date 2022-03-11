@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="accRepo" class="in.co.statements.oopsdemo.repo.PostgresRepository"></bean>
+	<bean id="accService" class="in.co.statements.oopsdemo.service.AccountService">
+		<property name="accountRepo" ref="accRepo"></property>
+	</bean>
+	<bean id="accController" class="in.co.statements.oopsdemo.controller.AccountController">
+		<property name="accountService" ref="accService"></property>
+	</bean>
+</beans>
